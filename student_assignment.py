@@ -25,21 +25,24 @@ def get_method():
         a = f['students']
         print(type(data))
         print(type(a))
-        def dict_of_dicts_merge(f, data):
+        """
+        def dict_of_dicts_merge(a, data):
             z = {}
-            overlapping_keys = f.items() & data.items()
+            overlapping_keys = a.items() & data.items()
             if(a.items() == data.items()):
                 return "Error"
             else:
                 for key in overlapping_keys:
-                    z[key] = dict_of_dicts_merge(f[key], data[key])
-                for key in f.keys() - overlapping_keys:
-                    z[key] = deepcopy(f[key])
+                    z[key] = dict_of_dicts_merge(a[key], data[key])
+                for key in a.keys() - overlapping_keys:
+                    z[key] = deepcopy(a[key])
                 for key in data.keys() - overlapping_keys:
                     z[key] = deepcopy(data[key])
                     print(z)
                 return z
-        lam =  dict_of_dicts_merge(f, data)
+        lam =  dict_of_dicts_merge(a, data)
+        """
+        lam = f | data
         new_path = os.path.join(path)
         with open(new_path, 'w') as file:  
             document = json.dump(lam, file)
