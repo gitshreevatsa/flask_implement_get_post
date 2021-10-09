@@ -1,7 +1,1 @@
-{"students":{
-	"1" : {"name" : "alex"},
-	"2" : { "name" : "mathew"},
-	"3" : { "name" :"raghav"},
-	"4" : { "name" : "morris"}
-	}
-}
+{"students": {"1": {"name": "alex"}, "2": {"name": "mathew"}, "3": {"name": "raghav"}, "4": {"name": "morris"}}}
