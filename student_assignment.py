@@ -34,6 +34,26 @@ def get_method():
                 document = json.dump(f, file)
             return "Updated Successfully"
         
+    if(request.method == 'PUT'):
+        data = request.get_json()
+        print(list(data.keys()))
+        path = os.path.join(os.getcwd(),'student.json')
+        f = open(path, 'r')
+        f = f.read()
+        f = json.loads(f)
+        a = f['students']
+        a_list = list(a)
+        print(data['id'])
+        overlap = data['id']
+        if(overlap not in a_list):
+            return "Error"
+        else:
+            a[data['id']] = {"name" : data['name']}
+            new_path = os.path.join(path)
+            with open(new_path, 'w') as file:  
+                document = json.dump(f, file)
+            return "Updated Successfully"
+
  
 
 if __name__ == '__main__':
